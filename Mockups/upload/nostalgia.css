@@ -1,0 +1,41 @@
+.Title18 {
+	font-family: Verdana, Arial;
+	font-size: 18px;
+	color: #CCCCCC;
+}
+
+.Title20 {
+	font-family: "Times New Roman", Times;
+	font-size: 30px;
+	color: #666666;
+	font-style: italic;
+	font-weight: bold;
+}
+
+
+.Text9 {
+	font-family: Verdana, Arial;
+	font-size: 10px;
+	color: #333333;
+}
+
+a:link {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #999999;
+	text-decoration: none;
+}
+
+a:hover {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #999999;
+	text-decoration: underline overline;
+}
+
+a:visited {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #666666;
+	text-decoration: underline overline;
+}
