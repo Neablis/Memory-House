@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Upload Pictures Here</title>
+        <!-- Including The jQuery Library -->
+        <script src="assets/js/jquery.js"></script>
+        
+        <!-- Including the HTML5 Uploader plugin -->
+        <script src="assets/js/jquery.filedrop.js"></script>
+        
+        <!-- Including the resize plugin -->
+        <script src="assets/js/jquery.autoresize.js"></script>
+        
+        <!-- Including the Modal Plugin -->
+        <script src="assets/js/jquery.simplemodal.js"></script>
+        
+        <script src="assets/js/jquery.cookies.js"></script>
+        
+        <!-- The main script file -->
+        <script src="assets/js/script.js"></script>
+        
+        <!-- Our CSS stylesheet file -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <script>
+          jQuery(function ($) {
+            // Load dialog on page load
+            var userCk  = $.cookies.get( 'user' );
+            if( userCk != 'agreed' ){
+              $('#basic-modal-content').modal({onClose: function (dialog) {
+                $.cookies.set( 'user', 'agreed' );
+                $.modal.close(); // must call this!
+              }});
+            }
+              $('textarea#styled').autoResize({
+                // On resize:
+                onResize : function() {
+                    $(this).css({opacity:0.8});
+                },
+                // After resize:
+                animateCallback : function() {
+                    $(this).css({opacity:1});
+                },
+                // Quite slow animation:
+                animateDuration : 100,
+                // More extra space:
+                extraSpace : 40
+              });
+              
+              $('textarea#warning').autoResize({
+                // On resize:
+                onResize : function() {
+                    $(this).css({opacity:0.8});
+                },
+                // After resize:
+                animateCallback : function() {
+                    $(this).css({opacity:1});
+                },
+                // Quite slow animation:
+                animateDuration : 300,
+                // More extra space:
+                extraSpace :  10
+            });
+            
+            $('textarea#direction').autoResize({
+                // On resize:
+                onResize : function() {
+                    $(this).css({opacity:0.8});
+                },
+                // After resize:
+                animateCallback : function() {
+                    $(this).css({opacity:1});
+                },
+                // Quite slow animation:
+                animateDuration : 300,
+                // More extra space:
+                extraSpace :  10
+            });
+            
+
+              
+          });
+      </script>
+    </head>
+    
+    <body>
+    
+    <div id="basic-modal-content">
+      <span>
+        <h3>Directions</h3>
+        <textarea name="direction-textarea" id="direction" readonly="readonly">
+          
+          -Before uploading polariods, make sure to leave a message.
+          
+          -Upload 1 picture at a time, maxiumum image size of 10mb.
+          
+          -After uploading a image, the message will be cleared
+              and ready for new message.
+        </textarea>
+        
+        <h3>Legality</h3>
+        <textarea name="warning-textarea" id="warning" readonly="readonly">
+          
+          All uploaded files are property of RIT, they can, and will, be used by
+          RIT for projects. We will not collect personally identifiable information
+          but if your message contains identifiable information, rit is not liable.          
+        </textarea>
+        <p><a href="#" class="simplemodal-close">Click to agree</a></p>
+      </span>
+		</div>
+    
+		<!--
+		<header>
+			<h1>File Upload</h1>
+		</header>
+    -->
+		
+    <div id="input_message">
+    		<span class="input_message_span"><h2>What memory do you connect with this image?</h2><br/><br/>
+        <textarea name="styled-textarea" id="styled"></textarea>
+      </span>
+		</div>
+    
+    
+		<div id="dropbox">
+			<span class="message">Drop Polaroid image here</span>
+		</div>
+        
+    
+    
+    
+    
+    </body>
+    
+</html>
+
