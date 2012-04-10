@@ -85,6 +85,9 @@ h2 {
   
 }
 
+#dialog-confirm{
+  display:none;
+}
 
 
 /*-------------------------
@@ -211,6 +214,7 @@ textarea#styled {
 #dropbox .preview.done .uploaded{
 	display: block;
 }
+
 
 
 

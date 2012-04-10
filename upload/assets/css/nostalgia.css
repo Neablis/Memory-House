@@ -1,0 +1,236 @@
+.Title18 {
+	font-family: Verdana, Arial;
+	font-size: 18px;
+	color: #CCCCCC;
+}
+
+.Title20 {
+	font-family: "Times New Roman", Times;
+	font-size: 30px;
+	color: #666666;
+	font-style: italic;
+	font-weight: bold;
+}
+
+
+.Text9 {
+	font-family: Verdana, Arial;
+	font-size: 10px;
+	color: #333333;
+}
+
+a:link {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #999999;
+	text-decoration: none;
+}
+
+a:hover {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #999999;
+	text-decoration: underline overline;
+}
+
+a:visited {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #666666;
+	text-decoration: underline overline;
+}
+
+textarea { 
+    resize: none; 
+}
+
+#HomeButton{
+  z-index:2;
+}
+
+#UploadButton{
+  z-index:2;
+}
+
+#AboutButton{
+  z-index:2;
+}
+#border{
+  position:absolute;
+  left:675px; 
+  top:1045px;
+  z-index:0;
+}
+
+#dialog-confirm{
+  display:none;
+}
+
+/*-------------------------
+	Dropbox Element
+--------------------------*/
+
+
+
+#dropbox{
+
+	border-radius:15px;
+	position: relative;
+	margin:80px auto 90px;
+	min-height: 200px;
+	overflow: hidden;
+	padding-bottom: 80px;
+  box-shadow:  0px 5px 5px 5px #737373;
+}
+
+
+#dropbox .message{
+	font-size: 11px;
+  text-align: center;
+  padding-top:110px;
+  display: block;
+}
+
+#dropbox .message i{
+	color:#ccc;
+	font-size:10px;
+}
+
+#dropbox:before{
+	border-radius:3px 3px 0 0;
+}
+
+
+/*-------------------------
+	Message Box
+--------------------------*/
+
+
+
+#input_message{
+	background:url('../img/background_tile_3.jpg');
+	border-radius:3px;
+	position: relative;
+	margin:100px auto 45px;
+	min-height: 150px;
+	overflow: hidden;
+	padding-bottom: 20px;
+  width: 60%;
+  box-shadow:  0px 5px 5px 5px #737373;
+}
+
+
+#input_message .input_message_span{
+	font-size: 11px;
+  text-align: center;
+  padding-top:40px;
+  display: block;
+  clear:both;
+}
+
+
+#message:before{
+	border-radius:3px 3px 0 0;
+}
+
+textarea#styled {
+
+	width: 80%;
+	height: 60px;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+}
+
+/*-------------------------
+	Image Previews
+--------------------------*/
+
+
+
+#dropbox .preview{
+	width:245px;
+	height: 215px;
+	float:left;
+	margin: 43px 0 0 43px;
+	position: relative;
+	text-align: center;
+}
+
+#dropbox .preview img{
+	width: 240px;
+	height:180px;
+	border-top:3px solid #fff;
+ 	border-left:3px solid #fff;
+ 	border-right:3px solid #fff;
+ 	border-bottom:30px solid #fff;
+
+	display: block;
+	
+	box-shadow:0 0 2px #000;
+}
+
+#dropbox .imageHolder{
+	display: inline-block;
+	position:relative;
+  margin-bottom: 20px;
+  
+}
+
+#dropbox .uploaded{
+	position: absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background: url('../img/done.png') no-repeat center center rgba(255,255,255,0.5);
+	display: none;
+}
+
+#dropbox .preview.done .uploaded{
+	display: block;
+}
+
+
+
+/*-------------------------
+	Progress Bars
+--------------------------*/
+
+
+
+#dropbox .progressHolder{
+	position: absolute;
+	background-color:#252f38;
+	height:20px;
+	width:245px;
+	left:0;
+	bottom: -20px;
+	box-shadow:0 0 2px #000;
+}
+
+#dropbox .progressHolder p{
+	width:100%;
+  position: absolute; 
+  text-align: center;
+  z-index:1;
+}
+
+
+#dropbox .progress{
+	background-color:#2586d0;
+	position: absolute;
+	height:100%;
+  top:0;
+	left:0;
+	width:0;
+	box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset;
+	
+	-moz-transition:0.25s;
+	-webkit-transition:0.25s;
+	-o-transition:0.25s;
+	transition:0.25s;
+}
+
+#dropbox .preview.done .progress{
+	width:100% !important;
+}

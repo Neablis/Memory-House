@@ -1,136 +1,73 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Upload Pictures Here</title>
-        <!-- Including The jQuery Library -->
-        <script src="assets/js/jquery.js"></script>
-        
-        <!-- Including the HTML5 Uploader plugin -->
-        <script src="assets/js/jquery.filedrop.js"></script>
-        
-        <!-- Including the resize plugin -->
-        <script src="assets/js/jquery.autoresize.js"></script>
-        
-        <!-- Including the Modal Plugin -->
-        <script src="assets/js/jquery.simplemodal.js"></script>
-        
-        <script src="assets/js/jquery.cookies.js"></script>
-        
-        <!-- The main script file -->
-        <script src="assets/js/script.js"></script>
-        
-        <!-- Our CSS stylesheet file -->
-        <link rel="stylesheet" href="assets/css/styles.css" />
-        <script>
-          jQuery(function ($) {
-            // Load dialog on page load
-            var userCk  = $.cookies.get( 'user' );
-            if( userCk != 'agreed' ){
-              $('#basic-modal-content').modal({onClose: function (dialog) {
-                $.cookies.set( 'user', 'agreed' );
-                $.modal.close(); // must call this!
-              }});
-            }
-              $('textarea#styled').autoResize({
-                // On resize:
-                onResize : function() {
-                    $(this).css({opacity:0.8});
-                },
-                // After resize:
-                animateCallback : function() {
-                    $(this).css({opacity:1});
-                },
-                // Quite slow animation:
-                animateDuration : 100,
-                // More extra space:
-                extraSpace : 40
-              });
-              
-              $('textarea#warning').autoResize({
-                // On resize:
-                onResize : function() {
-                    $(this).css({opacity:0.8});
-                },
-                // After resize:
-                animateCallback : function() {
-                    $(this).css({opacity:1});
-                },
-                // Quite slow animation:
-                animateDuration : 300,
-                // More extra space:
-                extraSpace :  10
-            });
-            
-            $('textarea#direction').autoResize({
-                // On resize:
-                onResize : function() {
-                    $(this).css({opacity:0.8});
-                },
-                // After resize:
-                animateCallback : function() {
-                    $(this).css({opacity:1});
-                },
-                // Quite slow animation:
-                animateDuration : 300,
-                // More extra space:
-                extraSpace :  10
-            });
-            
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>The Nostalgia Project</title>
+<style type="text/css">
 
-              
-          });
-      </script>
-    </head>
-    
-    <body>
-    
-    <div id="basic-modal-content">
-      <span>
-        <h3>Directions</h3>
-        <textarea name="direction-textarea" id="direction" readonly="readonly">
-          
-          -Before uploading polariods, make sure to leave a message.
-          
-          -Upload 1 picture at a time, maxiumum image size of 10mb.
-          
-          -After uploading a image, the message will be cleared
-              and ready for new message.
-        </textarea>
-        
-        <h3>Legality</h3>
-        <textarea name="warning-textarea" id="warning" readonly="readonly">
-          
-          All uploaded files are property of RIT, they can, and will, be used by
-          RIT for projects. We will not collect personally identifiable information
-          but if your message contains identifiable information, rit is not liable.          
-        </textarea>
-        <p><a href="#" class="simplemodal-close">Click to agree</a></p>
-      </span>
-		</div>
-    
-		<!--
-		<header>
-			<h1>File Upload</h1>
-		</header>
-    -->
-		
-    <div id="input_message">
-    		<span class="input_message_span"><h2>What memory do you connect with this image?</h2><br/><br/>
-        <textarea name="styled-textarea" id="styled"></textarea>
-      </span>
-		</div>
-    
-    
-		<div id="dropbox">
-			<span class="message">Drop Polaroid image here</span>
-		</div>
-        
-    
-    
-    
-    
-    </body>
-    
+#center {
+	margin: 20px;
+}
+
+</style>
+<link href="assets/css/nostalgia.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="center">
+ <span style="font-family: Verdana, Helvetica, Arial;">This Term of Use Agreement sets forth the legally binding conditions for the use of uploading Content to this RIT (Rochester Institute of Technology) website. By uploading your images and message to this website, you agree to be bound by this Agreement and acknowledge that you own the copyright to the Content you are uploading. At any time, modifications to this Agreement can be made. Any modifications will be posted and thus made effective and legally binding for anyone uploading Content to this site. Please review the Terms of Use Agreement carefully and often so you are aware of any modifications to conduct and conditions of use.
+
+1<strong>.</strong>Content Conditions and Prohibitions
+<strong>
+</strong>As a user of this RIT website, you agree to the following conditions of conduct, participation and contribution of any and all material, collectively known as Content:
+</span>
+<ul>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Prohibition of any photography or language containing objectionable content, including but not exclusive of harassment, sexual exploitation, excessive violent or obscene subject matter;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Prohibition of any subject matter promoting racism, bigotry, hatred or harm of any kind against any group or individual;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Endorsing inaccurate, false or misleading information or content that may be considered as defamatory or libelous;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Endorsing or promoting any illegal activity, including unauthorized use or infringement of another entity or person's copyright;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Obscuring, modifying or reproducing any copyrighted material, trademarks, or any other proprietary information without prior written approval;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Posting any image or language without the consent of the authorized owner.
+</span></li>
+</ul>
+<span style="font-family: Verdana, Helvetica, Arial;">
+2. Right of Content on this RIT website<strong>
+
+</strong>a. All persons postings made to this RIT website are the ownership of their author, including text, images, photographs, sounds, and all other material collectively known as posted "Content". RIT and the participants of this project do not claim or exert any ownership rights for aforementioned Content.
+b. By posting to this website you grant RIT and the participants of this project limited license to use, display, reproduce and distribute your Content for educational purposes only. The Content will not be sold or distributed for commercial purposes.
+
+c. With acceptance of this Agreement, you represent and warrant that:
+</span>
+<ul>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">You own the content posted by you on this RIT website;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">You have the right to grant the license described in this section;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">Your Content does not violate the privacy rights, copyrights, or any other rights of any person;</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">You agree to pay for all royalties, fees, and any other monies owing any person by reason of any Content posted by you.</span></li>
+	<li><span style="font-family: Verdana, Helvetica, Arial;">You have a model release from any person represented in your uploaded image.
+</span></li>
+</ul>
+<span style="font-family: Verdana, Helvetica, Arial;">d. RIT and the participants of this project may at any time and at its sole discretion restrict, reject and terminate any posted Content it deems inappropriate or not expressive of the high standards and values set out in this Agreement.
+
+3. Disclaimers
+RIT and the participants of this project are not responsible for any posted Content by the user, its accuracy or completeness. It is not responsible for the opinions expressed in posted content. This is the sole responsibility of the user posting Content.
+
+b. RIT and the participants of this project will not be responsible for any loss or damage to Content posted on the website.
+
+4. Limits to Liability and Indemnity
+
+RIT and the participants of this project will not be held liable to you or any third person for any indirect, consequential, attendant or punitive damages resulting directly or indirectly from participation or contribution of Content on or through this website.
+
+b. You agree to indemnify RIT, its website, faculty, students, employees and participants in this project harmless from any loss, liability, claim, or demand made by any third party due to your use of this RIT website, including posting of Content, misrepresentations, and breach of this Agreement.
+
+5. Other
+
+a. You approve and accept this Agreement<strong></strong>upon your use of this RIT website.
+
+b. In the unlikely event of a dispute, you agree the dispute will be governed and arbitrated by the laws, provisions and courts of the State of New York, USA.
+
+</span>
+
+</div>
+<div align="center"></div>
+</body>
 </html>
-

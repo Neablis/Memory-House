@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>The Nostalgia Project</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #7f7f7f;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+
+        <!-- Including The jQuery Library -->
+        <script src="assets/js/jquery.js"></script>
+        
+        <!-- Including The jQuery Library -->
+        <script src="assets/js/jquery-ui.js"></script>
+        
+        <!-- Including the HTML5 Uploader plugin -->
+        <script src="assets/js/jquery.filedrop.js"></script>
+        
+        <!-- Including the resize plugin -->
+        <script src="assets/js/jquery.autoresize.js"></script>
+        
+        <!-- Including the Modal Plugin -->
+        <script src="assets/js/jquery.simplemodal.js"></script>
+        
+        <!-- Including the cookie Plugin -->
+        <script src="assets/js/jquery.cookies.js"></script>
+        
+        <!-- The main script file -->
+        <script src="assets/js/script.js"></script>
+
+         <link href="assets/css/nostalgia.css" rel="stylesheet" type="text/css" />
+         
+        <!-- Jquery CSS stylesheet file -->
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+
+         <!-- The main script file -->
+        <script src="assets/js/modernizr.js"></script>
+
+</head>
+
+<body>
+<!-- Legal Terms ------------------------------------------------->
+<!-- Mitch: Can you make this part a pop-up dialog box when users first enter this page? -------->
+  <div id="dialog-confirm" title="Legal">
+    <p>
+      Please Review and accept the terms of aggreement before proceeding.<br>
+      <center><i><a href="legal.html">Legal</a></i></center>
+    </p>
+  </div>
+  <div id='border'>
+    <a href='default.html'><img src="assets/img/border.png"/></a>
+  </div>
+  
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="assets/img/top_01.jpg" width="1000" height="398" /></td>
+  </tr>
+
+
+
+
+<!-- Upload photos ------------------------------------------------->
+
+  <tr>
+    <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="189">&nbsp;</td>
+        <td width="656" bgcolor="#FFFFFF">
+		
+		<table width="100%" border="0" cellspacing="0" cellpadding="30">
+          <tr>
+            <td width="40%" align="center" valign="top">
+              <p><span class="Title20">Upload<br />
+                Photos </span></p>
+              <p><span class="Text9">Upload your images<br />
+                and memories here </span>                </p>
+              </div></td>
+			
+            <td width="60%"><p align="right"><span class="Title18"><a name="photos" id="photos"></a>What triggers nostalgia for you? </span><br />
+                <!--<img src="assets/img/browse_file.jpg" width="377" height="46" /> -->
+                      <br>
+                      <textarea name="styled-textarea" id="styled"></textarea>
+
+              </p>
+              
+			  <p align="right">
+
+          <div id='drag'>
+            <!-- if browser supports drag-and-drop ---------------->
+            
+            <div id="dropbox">
+              <span class="message">Drop Polaroid image here</span>
+            </div>             
+            <br />
+          </div>
+          <div id='manual'>
+            <p align="right">
+            <!-- if browser supports file-browser ---------------->
+              <span class="Title18">Select a photo<br />
+              </span> 
+              <form action="post_file.php" method="post"
+                enctype="multipart/form-data">
+                <label for="file">Filename:</label>
+                <input type="file" name="file" id="file" /> 
+                <br />
+                <input type="submit" name="submit" value="Submit" />
+              </form>
+            </p>
+          </div>
+
+        </td>
+          </tr>
+        </table>          
+		
+		</td>
+		<td width="155">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+
+
+
+	<!-- Buttons ------------------------------------------------------------------------------------------------------------>
+  <tr>
+    <td>
+		<table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="189">&nbsp;</td>
+        <td width="656" bgcolor="#FFFFFF" class="Title12"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#7f7f7f">
+            <tr>
+              <td width="33%">
+                <div align="center" id='HomeButton'><a href="default.html"><img src="assets/img/home_03.jpg" alt="Home" width="150" height="58" border="0" /></a></div>              </td>
+              <td width="34%">
+			  <div align="center" id='UploadButton'><a href="upload.html"><img src="assets/img/upload_03.jpg" alt="Home" width="150" height="58" border="0" /></a></div>			  </td>
+              <td width="33%">
+			  <div align="center" id='AboutButton'><a href="about.html"><img src="assets/img/about_03.jpg" alt="Home" width="150" height="58" border="0" /></a></div>			  </td>
+            </tr>
+        </table></td>
+        <td width="155">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+
+
+  <tr>
+    <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="189">&nbsp;</td>
+        <!-- Additional text ------------------------------------------------------------->
+        <td width="656" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="20">
+            <tr>
+              <td width="33%"><div align="center" class="Text9">
+                <p><a href="default.html#how">How it works</a></p>
+                <p><a href="default.html#events">Upcoming events </a></p>
+                <p><a href="default.html#past">Past performances </a></p>
+              </div></td>
+              <td width="34%"><div align="center" class="Text9">
+                <p><a href="upload.html#photos" target="_self">Photos</a></p>
+                <p><a href="audio.html">Audio</a></p>
+                <p><a href="upload.html#tag" target="_self">Tag uploaded photos </a></p>
+              </div></td>
+              <td width="33%"><div align="center" class="Text9">
+                <p><a href="about.html#project">Project</a></p>
+                <p><a href="about.html#people">People</a></p>
+                <p><a href="about.html#contact">Contact</a></p>
+              </div></td>
+            </tr>
+        </table>
+          </td>
+        <td width="155">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<div align="center"></div>
+</body>
+</html>
