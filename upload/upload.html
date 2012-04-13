@@ -33,14 +33,54 @@ body {
         
         <!-- The main script file -->
         <script src="assets/js/script.js"></script>
+        
+        <!-- The boarder script file -->
+        <script src="assets/js/border.js"></script>
+        
+        
+        <!-- The main script file -->
+        <script type="text/javascript" src="assets/js/dropbox.js"></script>
+        
+        <script type="text/javascript" src="assets/uploadify/swfobject.js"></script>
+        <script type="text/javascript" src="assets/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+
 
          <link href="assets/css/nostalgia.css" rel="stylesheet" type="text/css" />
+         <link href="assets/css/uploadify.css" rel="stylesheet" type="text/css" />
+
          
         <!-- Jquery CSS stylesheet file -->
         <link rel="stylesheet" href="assets/css/jquery-ui.css" />
 
          <!-- The main script file -->
-        <script src="assets/js/modernizr.js"></script>
+        <script type="text/javascript" src="assets/js/modernizr.js"></script>
+
+        <script type="text/javascript">
+          // <![CDATA[
+          $(document).ready(function() {
+            $('#file_upload').uploadify({
+              'uploader'  : 'assets/uploadify/uploadify.swf',
+              'script'    : 'post_file.php',
+              'cancelImg' : 'assets/uploadify/cancel.png',
+              'fileExt'     : '*.jpg;*.png',
+              'auto'      : true,
+              'fileDesc'    : 'Web Image and Audio Files (.JPG, .MP3)',
+              'removeCompleted': false,
+              'scriptData'  : {'param1':$("textarea[name=styled-textarea]").val()},
+              'onSelect'    : function(event,ID,fileObj) {
+                if( $("textarea[name=styled-textarea]").val() == "" ){
+                  console.log('upload failed');
+                  alert( "Please enter a message first before uploading a image" );
+                  $('#file_upload').uploadifyClearQueue();
+                }
+                
+              }
+            });
+          });
+          // ]]>
+        </script>
+
+
 
 </head>
 
@@ -65,7 +105,7 @@ body {
 
 
 
-<!-- Upload photos ------------------------------------------------->
+<!-- Upload ------------------------------------------------->
 
   <tr>
     <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
@@ -76,43 +116,34 @@ body {
 		<table width="100%" border="0" cellspacing="0" cellpadding="30">
       <tr>
         <td width="40%" align="center" valign="top">
-          <p><span class="Title20">Upload<br />
-                Photos </span></p>
-          <p><span class="Text9">Upload your images<br />
-            and memories here </span>                </p>
-          </div>
+           <p><span class="Title20">Upload<br />
+                Photos Or Audio Files</span></p>
         </td>
 			
         <td width="60%">
-              <p align="right"><span class="Title18"><a name="photos" id="photos"></a>What triggers nostalgia for you? </span><br />
+           
+      
+              <p align="left"><span class="Title18"><a name="photos" id="photos"></a>What evokes a sense of<br /> nostalgia for you?</span><br />
                 <!--<img src="assets/img/browse_file.jpg" width="377" height="46" /> -->
                       <br>
                       <textarea name="styled-textarea" id="styled"></textarea>
 
               </p>
               
-			  <p align="right">
 
-          <div id='drag'>
+          <div class='drag'>
             <!-- if browser supports drag-and-drop ---------------->
             
             <div id="dropbox">
-              <span class="message">Drop Polaroid image here</span>
+              <span class="message">Drop Polaroid images or audio files here</span>
             </div>             
             <br />
           </div>
-          <div id='manual'>
+          <div class='manual'>
             <p align="right">
             <!-- if browser supports file-browser ---------------->
-              <span class="Title18">Select a photo<br />
-              </span> 
-              <form action="post_file.php" method="post"
-                enctype="multipart/form-data">
-                <label for="file">Filename:</label>
-                <input type="file" name="file" id="file" /> 
-                <br />
-                <input type="submit" name="submit" value="Submit" />
-              </form>
+              <input type="file" id="file_upload" name="file_upload" />
+              <br/><br/><a href="javascript:$('#file_upload').uploadifyUpload();"><img src="assets/img/upload.gif" alt="Home" width="150" height="58" border="0" /></a>
             </p>
           </div>
 
@@ -158,19 +189,14 @@ body {
         <td width="656" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="20">
             <tr>
               <td width="33%"><div align="center" class="Text9">
-                <p><a href="index.html#how">How it works</a></p>
-                <p><a href="index.html#events">Upcoming events </a></p>
-                <p><a href="index.html#past">Past performances </a></p>
+                  <p><a href="404.html" target="_self">Admin</a></p>
+
               </div></td>
               <td width="34%"><div align="center" class="Text9">
-                <p><a href="upload.html#photos" target="_self">Photos</a></p>
-                <p><a href="audio.html">Audio</a></p>
-                <p><a href="upload.html#tag" target="_self">Tag uploaded photos </a></p>
+                <p><a href="404.html">Tag</a></p>    
               </div></td>
               <td width="33%"><div align="center" class="Text9">
-                <p><a href="about.html#project">Project</a></p>
-                <p><a href="about.html#people">People</a></p>
-                <p><a href="about.html#contact">Contact</a></p>
+                <p><a href="Legal.html">Legal</a></p>
               </div></td>
             </tr>
         </table>

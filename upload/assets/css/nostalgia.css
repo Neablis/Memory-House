@@ -55,10 +55,9 @@ textarea {
 #AboutButton{
   z-index:2;
 }
+
 #border{
   position:absolute;
-  left:675px; 
-  top:1045px;
   z-index:0;
 }
 
@@ -67,7 +66,7 @@ textarea {
 }
 
 /*-------------------------
-	Dropbox Element
+	Dropbox And Audio Element
 --------------------------*/
 
 
@@ -100,7 +99,33 @@ textarea {
 	border-radius:3px 3px 0 0;
 }
 
+#audio{
 
+	border-radius:15px;
+	position: relative;
+	margin:80px auto 90px;
+	min-height: 200px;
+	overflow: hidden;
+	padding-bottom: 80px;
+  box-shadow:  0px 5px 5px 5px #737373;
+}
+
+
+#audio .message{
+	font-size: 11px;
+  text-align: center;
+  padding-top:110px;
+  display: block;
+}
+
+#audio .message i{
+	color:#ccc;
+	font-size:10px;
+}
+
+#audio:before{
+	border-radius:3px 3px 0 0;
+}
 /*-------------------------
 	Message Box
 --------------------------*/
@@ -135,7 +160,7 @@ textarea {
 
 textarea#styled {
 
-	width: 80%;
+	width: 90%;
 	height: 60px;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;

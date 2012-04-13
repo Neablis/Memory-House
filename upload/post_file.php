@@ -4,12 +4,13 @@
 // set $demo_mode to true;
 
 
-
 $demo_mode = false;
-$upload_dir = 'uploads/';
+$upload_dir_photos = 'uploads/Photos/';
+$upload_dir_audio = 'uploads/Audio/';
 $log_dir = 'logs/';
-$allowed_ext = array('jpg','jpeg','png','gif');
-
+$allowed_ext_photos = array('jpg','jpeg','png','gif');
+$allowed_ext_audio = array('mp3','ogg','wav');
+$upload_string = '';
 
 if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
 	exit_status('Error! Wrong HTTP method!');
@@ -17,29 +18,38 @@ if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
 
 
 if(array_key_exists('pic',$_FILES) && $_FILES['pic']['error'] == 0 ){
-	
+
 	$pic = $_FILES['pic'];
   $note = 'No Message';
 
 	$tmp = explode('.', $pic['name']);
-  $uniqueName = stripJunk($tmp[0]) . "_" . time() . "." . array_pop($tmp);;
+  $uniqueName = stripJunk($tmp[0]) . "_" . time() . "." . array_pop($tmp);
 
   
-	if(!in_array(get_extension($pic['name']),$allowed_ext)){
-    //file is bad
-    $line = implode('  ,  ', array( date('r'), $_SERVER['REMOTE_ADDR'], $pic['size'], $uniqueName, 'failed'));
-		file_put_contents( $log_dir . 'log.txt', $line.PHP_EOL, FILE_APPEND);
-		exit_status('Only '.implode(',',$allowed_ext).' files are allowed!');
-	}else{	
+	if(in_array(get_extension($pic['name']),$allowed_ext_photos)){
     //File is good
     if(array_key_exists('param1',$_POST) == true){
       $note = $_POST['param1'];
     }
     $line = implode('  ,  ', array( date('r'), $_SERVER['REMOTE_ADDR'], $pic['size'], $uniqueName, 'success'));
     file_put_contents($log_dir . 'log.txt', $line.PHP_EOL, FILE_APPEND); 
+    $upload_string = $upload_dir_photos.$uniqueName;
+    update_SQL( $uniqueName, $note );
+	}else if(in_array(get_extension($pic['name']),$allowed_ext_audio)){	
+    //File is good
 
-    update_SQL($log_dir.'messages.xml', $uniqueName, $note );
+    $note = 'Audio File';
+
+    $line = implode('  ,  ', array( date('r'), $_SERVER['REMOTE_ADDR'], $pic['size'], $uniqueName, 'success'));
+    file_put_contents($log_dir . 'log.txt', $line.PHP_EOL, FILE_APPEND); 
+    $upload_string = $upload_dir_audio.$uniqueName;
+    update_SQL( $uniqueName, $note );
    
+  }else{
+      //file is bad
+    $line = implode('  ,  ', array( date('r'), $_SERVER['REMOTE_ADDR'], $pic['size'], $uniqueName, 'failed'));
+		file_put_contents( $log_dir . 'log.txt', $line.PHP_EOL, FILE_APPEND);
+		exit_status('Only '.implode(',',$allowed_ext_photos).' files are allowed!');
   }
   
   if($demo_mode){
@@ -47,11 +57,13 @@ if(array_key_exists('pic',$_FILES) && $_FILES['pic']['error'] == 0 ){
 	}
    // Move the uploaded file from the temporary 
 	// directory to the uploads folder:
-	if(move_uploaded_file($pic['tmp_name'], $upload_dir.$uniqueName)){
+	if(move_uploaded_file($pic['tmp_name'], $upload_string)){
+
 		exit_status('File was uploaded successfuly!');
 	}
 	
 }
+
 /*
 elseif( array_key_exists('file', $_FILES ){
   
@@ -93,7 +105,7 @@ elseif( array_key_exists('file', $_FILES ){
 	}
    // Move the uploaded file from the temporary 
 	// directory to the uploads folder:
-	if(move_uploaded_file($pic['tmp_name'], $upload_dir.$uniqueName)){
+	if(move_uploaded_file($pic['tmp_name'], $upload_dir_audio.$uniqueName)){
 		exit_status('File was uploaded successfuly!');
 	}
 
@@ -121,7 +133,7 @@ function stripJunk($string){
     return $string;
 }
 
-function update_SQL($file, $imageName, $note){
+function update_SQL($imageName, $note){
 
   $con = mysql_connect("localhost","polaroid","Aa5266063");
     
@@ -137,39 +149,6 @@ function update_SQL($file, $imageName, $note){
       
       mysql_close($con);
 
-    
-    
-  
-  /*
-  $xml = new DOMDocument('1.0', 'utf-8');
-  $xml->formatOutput = true;
-
-  if( file_exists($file ) ){
-  
-    $xml->load('logs/messages.xml');
-    $newItem = $xml->createElement('image');
-    $newItem->appendChild($xml->createElement('name', $imageName));
-    $newItem->appendChild($xml->createElement('message', $note));
-    $xml->getElementsByTagName('images')->item(0)->appendChild($newItem);
-    $xml->save($file);
-  
-  }else{
-
-    $root = $xml->createElement('images');
-    $newItem = $xml->createElement('image');
-    $name = $xml->createElement('name', $imageName);
-    $note = $xml->createElement('message', $note);
-    
-    $newItem->appendChild($name);
-    $newItem->appendChild($note);
-    
-    $xml->appendChild($root);
-    $root->appendChild($newItem);
-    
-    $xml->save($file);
-
-  }
-  */
 }
 
 function get_extension($file_name){
